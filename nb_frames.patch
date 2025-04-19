@@ -1,0 +1,13 @@
+diff --git a/inference_realesrgan_video.py b/inference_realesrgan_video.py
+index c3c4d14..bb6f57e 100644
+--- a/inference_realesrgan_video.py
++++ b/inference_realesrgan_video.py
+@@ -32,7 +32,7 @@ def get_video_meta_info(video_path):
+     ret['height'] = video_streams[0]['height']
+     ret['fps'] = eval(video_streams[0]['avg_frame_rate'])
+     ret['audio'] = ffmpeg.input(video_path).audio if has_audio else None
+-    ret['nb_frames'] = int(video_streams[0]['nb_frames'])
++    ret['nb_frames'] = int(video_streams[0].get('nb_frames', 0))
+     return ret
+ 
+ 
