@@ -28,16 +28,16 @@ for FILE in "$INPUT_DIR"/*.{mp4,mkv,avi,webm,mov}; do
   echo "\n[INFO] Upscaling: $BASENAME to $OUTPUT_VIDEO"
 
   # Run Real-ESRGAN to upscale video only
-  #python3 /opt/Real-ESRGAN/inference_realesrgan_video.py \
-  #  -i "$FILE" \
-  #  -o "$OUTPUT_DIR" \
-  #  -n "$MODEL" \
-  #  -s "$SCALE" \
-  #  --tile "$TILE" \
-  #  --denoise_strength "$DENOISE" \
-  #  --num_process_per_gpu "$NUM_PROC" \
-  #  --suffix $SUFFIX \
-  #  --ext "$EXT"
+  python3 /opt/Real-ESRGAN/inference_realesrgan_video.py \
+    -i "$FILE" \
+    -o "$OUTPUT_DIR" \
+    -n "$MODEL" \
+    -s "$SCALE" \
+    --tile "$TILE" \
+    --denoise_strength "$DENOISE" \
+    --num_process_per_gpu "$NUM_PROC" \
+    --suffix $SUFFIX \
+    --ext "$EXT"
 
   if [[ ! -f "$OUTPUT_VIDEO" ]]; then
     echo "[ERROR] Upscaled file was not created: $OUTPUT_VIDEO"
@@ -55,7 +55,7 @@ for FILE in "$INPUT_DIR"/*.{mp4,mkv,avi,webm,mov}; do
     "$OUTPUT_DIR/${FILENAME}.mkv"
 
   # Clean intermediate directory
-  #rm -rf "$OUTPUT_VIDEO"
+  rm -rf "$OUTPUT_VIDEO"
 done
 
 echo -e "\n[INFO] All videos processed and remuxed into $OUTPUT_DIR"
