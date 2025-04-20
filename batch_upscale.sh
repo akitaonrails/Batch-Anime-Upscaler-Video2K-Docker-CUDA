@@ -4,6 +4,7 @@ set -e
 INPUT_DIR="/input"
 OUTPUT_DIR="/output"
 MODEL="${MODEL:-realesr-animevideov3}"
+#MODEL="${MODEL:-RealESRGAN_x4plus_anime_6B}"
 SCALE="${SCALE:-4}"
 TILE="${TILE:-0}"
 DENOISE="${DENOISE:-1.0}"

@@ -26,6 +26,9 @@ RUN mkdir -p /opt/Real-ESRGAN/weights && \
     wget -q https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-animevideov3.pth \
          -O /opt/Real-ESRGAN/weights/realesr-animevideov3.pth
 
+RUN wget -q https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth \
+     -O /opt/Real-ESRGAN/weights/RealESRGAN_x4plus_anime_6B.pth
+
 COPY batch_upscale.sh /usr/local/bin/batch_upscale.sh
 RUN chmod +x /usr/local/bin/batch_upscale.sh
 
