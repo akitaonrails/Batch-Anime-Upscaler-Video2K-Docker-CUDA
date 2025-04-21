@@ -37,6 +37,10 @@ ARG HOST_UID=1000
 ARG HOST_GID=1000
 RUN groupadd -g $HOST_GID hostgroup && \
     useradd -m -u $HOST_UID -g $HOST_GID hostuser
+
+RUN mkdir -p /opt/Real-ESRGAN/weights && \
+    chown -R hostuser:hostgroup /opt/Real-ESRGAN/weights
+
 USER hostuser
 
 WORKDIR /data
